@@ -1,3 +1,7 @@
+//9
+//Assume that you have a seven-slot closed hash table (the slots are numbered o through 6) 
+//Write program  to final hash table that would result if you used the hash function h(k) - k mod 7.
+
 #include <stdio.h>
 
 #define SIZE 7

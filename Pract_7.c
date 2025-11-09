@@ -1,3 +1,11 @@
+//7	
+//Consider the undirected graph G, consisting of n nodes laid out in a 
+//3 -by- 3 grid: Start searching at node 1, and break ties for exploring the next node 
+//based on lower numerical order (i.e. add nodes to a queue low to high, add nodes to a stack high to low). 
+//(a) In what order are nodes marked as explored by BFS? (b) In what order are nodes marked as explored by DFS?
+	
+
+
 #include <stdio.h>
 #define SIZE 9
 

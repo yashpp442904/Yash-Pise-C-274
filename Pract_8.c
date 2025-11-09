@@ -1,3 +1,10 @@
+//8	
+//Write a program which accepts undirected graph and a starting node, determine the 
+//lengths of the shortest paths from the starting node to all other nodes in the graph. 
+//If a node is unreachable, its distance is -1. Nodes will be numbered consecutively from 1 to n, 
+//and edges will have varying distances or lengths. Find the sub tree using Dijikstra algorithm.	
+
+
 #include <stdio.h>
 #include <limits.h>
 

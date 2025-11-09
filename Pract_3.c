@@ -1,95 +1,92 @@
-#include <stdio.h>
-#define MAX 50
+//3	Design, Develop and Implement a menu driven Program in C for the 
+//following operations on QUEUE of Characters (Array Implementation of 
+//Queue with maximum size MAX)
+//a. Insert an Element on to QUEUE
+//b. Delete an Element from QUEUE
+//c. Demonstrate Overflow and Underflow situations on QUEUE
+//d. Display the status of QUEUE
+//e. Exit
+//Support the program with appropriate functions for each of the above operations.	
 
-char queue[MAX];
+
+#include <stdio.h>
+#define MAX 5
+
+char Q[MAX];
 int front = -1, rear = -1;
 
-void insert(char element) {
+void EnQ();
+void DeQ();
+void display();
+
+int main() {
+    int choice;
+    printf("1. Insert an Element in Queue\n2. Delete an Element from Queue\n3. Display the status of Queue\n4. Exit\n");
+
+    do {
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                EnQ();
+                break;
+            case 2:
+                DeQ();
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                printf("Exiting program.\n");
+                return 0;
+            default:
+                printf("Invalid choice! Try again.\n");
+        }
+    } while (choice != 4);
+
+    return 0;
+}
+
+// Function to insert an element in queue
+void EnQ() {
+    char ele;   
+    printf("Enter character to insert: ");
+    scanf(" %c", &ele);
+
     if (rear == MAX - 1) {
-        printf("Queue Overflow! Cannot insert '%c'\n", element);
+        printf("Queue Overflow! Cannot insert '%c'\n", ele);
     } else {
         if (front == -1)
             front = 0;
-        queue[++rear] = element;
-        printf("'%c' inserted into queue.\n", element);
+        Q[++rear] = ele;
+        printf("'%c' inserted into queue.\n", ele);
     }
 }
 
-void delete() {
+// Function to delete an element from queue
+void DeQ() {
     if (front == -1 || front > rear) {
         printf("Queue Underflow! No element to delete.\n");
     } else {
-        printf("'%c' deleted from queue.\n", queue[front]);
+        printf("'%c' deleted from queue.\n", Q[front]);
         front++;
         if (front > rear)
             front = rear = -1;
     }
 }
 
+// Function to display queue
 void display() {
     if (front == -1) {
         printf("Queue is empty.\n");
     } else {
         printf("Queue elements (front to rear): ");
         for (int i = front; i <= rear; i++) {
-            printf("%c ", queue[i]);
+            printf("%c ", Q[i]);
         }
         printf("\n");
     }
 }
 
-void demonstrateOverflow() {
-    rear = MAX - 1;
-    printf("Demonstrating Overflow...\n");
-    insert('Z');
-}
 
-void demonstrateUnderflow() {
-    front = rear = -1;
-    printf("Demonstrating Underflow...\n");
-    delete();
-}
-
-int main() {
-    int choice;
-    char element;
-
-    while (1) {
-        printf("\n--- Queue Operations Menu ---\n");
-        printf("1. Insert an Element\n");
-        printf("2. Delete an Element\n");
-        printf("3. Demonstrate Overflow\n");
-        printf("4. Demonstrate Underflow\n");
-        printf("5. Display Queue\n");
-        printf("6. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-
-        switch (choice) {
-            case 1:
-                printf("Enter character to insert: ");
-                scanf(" %c", &element);
-                insert(element);
-                break;
-            case 2:
-                delete();
-                break;
-            case 3:
-                demonstrateOverflow();
-                break;
-            case 4:
-                demonstrateUnderflow();
-                break;
-            case 5:
-                display();
-                break;
-            case 6:
-                printf("Exiting program.\n");
-                return 0;
-            default:
-                printf("Invalid choice! Try again.\n");
-        }
-    }
-
-    return 0;
-}

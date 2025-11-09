@@ -1,3 +1,12 @@
+//6	
+//Implement Binary search tree(BST) with following Menu operations.
+//1.	Search an element in BST(Display NULL if not found, If found Display Found)
+//2.	Insert an element in BST
+//3.	Delete leaf element in BST
+//4.	Exit
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -70,14 +79,14 @@ int main() {
     struct Node* root = NULL;
     int choice, value;
     struct Node* found;
+ 
+    printf("1. Insert an element\n");
+    printf("2. Search an element\n");
+    printf("3. Delete leaf element\n");
+    printf("4. Display Inorder Traversal\n");
+    printf("5. Exit\n");
+    do{
 
-    while (1) {
-        printf("\n\n--- Binary Search Tree Menu ---\n");
-        printf("1. Insert an element\n");
-        printf("2. Search an element\n");
-        printf("3. Delete leaf element\n");
-        printf("4. Display Inorder Traversal\n");
-        printf("5. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -118,6 +127,6 @@ int main() {
             default:
                 printf("Invalid choice. Please try again.\n");
         }
-    }
+    }while(choice != 5);
     return 0;
 }
